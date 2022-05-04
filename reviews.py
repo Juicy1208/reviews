@@ -1,13 +1,9 @@
-#寫法一:
-# with open('reviews.txt','r') as reviews:
-	# for review in reviews:
-		# print(review.strip())
-
-#寫法二:
+#因逐筆print很慢，所以改成只print每次地1000筆
 data = []
+count = 0
 with open('reviews.txt','r') as reviews:
 	for review in reviews:
 		data.append(review.strip())
-print(len(data)) #印出留言有幾筆 
-print(data[0]) #印出第一筆資料
-print(data[1]) #印出第二筆資料
+		count += 1
+		if count % 1000 == 0:
+			print(len(data))
