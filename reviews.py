@@ -1,9 +1,11 @@
-#因逐筆print很慢，所以改成只print每次地1000筆
+#計算留言平均長度
+total_rlen = []
 data = []
-count = 0
 with open('reviews.txt','r') as reviews:
 	for review in reviews:
-		data.append(review.strip())
-		count += 1
-		if count % 1000 == 0:
-			print(len(data))
+		total_rlen.append(len(review))
+		data.append(review)
+sum1=sum(total_rlen)
+sum2=len(data)
+average = sum1/sum2
+print(average)
